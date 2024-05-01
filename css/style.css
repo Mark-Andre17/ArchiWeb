@@ -19,7 +19,7 @@ body{
     font-family: 'Inter', sans-serif;
     font-family: 'Playfair Display', serif;
 }
-.burger, .burger-svg{
+.burger, .burger-svg,.buttons-gallery,.dots{
     display: none;
 }
 .container{
@@ -459,7 +459,7 @@ footer{
         position: fixed;
         width: 320px;
         height: 100vh;
-        left:0;
+        left:-1000px;
         opacity:0;
         top:0;
         background-color: #254D4D;
@@ -475,6 +475,7 @@ footer{
     .header-nav.show{
         opacity: 1;
         transition: 0.8s all;
+        left: 0;
     }
     .main{
     transition: 0.8s all;
@@ -519,7 +520,7 @@ footer{
     }
     .burger{
         position: fixed;
-        left: 400px;
+        left: 80%;
     }
     .home-wrapper{
         display:none;
@@ -546,20 +547,90 @@ footer{
         display: block;
         text-align: right;
     }
-    .projects-title{
-        text-align: center;
+    .projects{
+        position: relative;
     }
-    .projects-gallery{
+    .buttons-gallery{
+        display: block;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .gallery-next, .gallery-prev{
+        position: absolute;
+        top: 50%;
+        font-size: 48px;
+        text-align: center;
+        color: #254D4D;
+        border: none;
+        background-color: transparent;
+        opacity: 0.8;
+        transition: all 0.5s ease-in-out;
+        opacity: 0.5;
+        z-index: 5;
+
+    }
+    .gallery-prev:hover, .gallery-next:hover{
+        color: white;
+        background-color: #254D4D;
+
+    }
+    .gallery-next{
+        right: 25%;
+    }
+    .gallery-prev{
+        left: 25%;
+    }
+    .dots{
+        display: flex;
         justify-content: center;
         align-items: center;
         gap: 10px;
     }
-    .testimonial{
-        margin-bottom: 50px;
+    .active-dot{
+        background-color: #254D4D;
+    }
+    .dot-slider{
+        width: 5px;
+        height: 5px;
+        border:1px solid #254D4D;
+    }
+    .projects-title{
+        text-align: center;
+    }
+    .gallery-slider{
+        position: relative;
+        width: 300px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        transition: all linear 0.8s;
+    }
+    .projects-gallery{
+        width: 1800px;
+        flex-wrap: nowrap;
+        gap: 0;
+        position: relative;
+        transform: translateX(0); 
+        transition: all linear 0.8s;
+    }
+    .projects-gallery-item,.projects-gallery-item__img{
+        max-width: 300px;
+    }
+    .testimonial-slider{
+        max-width: 300px;
+        overflow: hidden;
     }
     .testimonial-wrapper{
-        flex-wrap: wrap;
-        gap: 15px;
+        position: relative;
+        transform: translateX(0);
+        flex-wrap: nowrap;
+        gap: 0;
+        width: 600px;
+        transition: all linear 0.8s;
+    }
+    .testimonial{
+        margin-bottom: 50px;
     }
     footer{
         padding-top: 15px;
@@ -581,5 +652,14 @@ footer{
     }
     .header-nav{
         width: 250px;
+    }
+    .gallery-next{
+        right: 5%;
+    }
+    .gallery-prev{
+        left: 5%;
+    }
+    .testimonial-people{
+        text-align: center;
     }
 }
